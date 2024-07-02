@@ -106,34 +106,16 @@ export const CardItem = ({
                              rotateZ = 0,
                              ...rest
                          }: {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     as?: React.ElementType;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     children: React.ReactNode;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     className?: string;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     translateX?: number | string;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     translateY?: number | string;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     translateZ?: number | string;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     rotateX?: number | string;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     rotateY?: number | string;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     rotateZ?: number | string;
-    [key: string]: never;
+    [key: string]: string | number | React.ReactNode | React.ElementType | undefined;
 }) => {
     const ref = useRef<HTMLDivElement>(null);
     const [isMouseEntered] = useMouseEnter();
