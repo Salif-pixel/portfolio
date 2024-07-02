@@ -40,9 +40,7 @@ export function PlaceholdersAndVanishInputDemo() {
   };
   return (
       <div className="h-[40rem] relative flex flex-col justify-center mt-10 items-center px-4">
-          <div className="w-full absolute inset-0 h-screen">
-
-          </div>
+         
           <h2 className="mb-10 sm:mb-20 text-xl text-center sm:text-5xl dark:text-white text-black">
               Contactez moi
           </h2>
