@@ -17,7 +17,7 @@ import {TabsDemo} from "./tabsDemo.tsx";
 export function Competence() {
     return (
         <motion.div initial={{height: "0vh"}} id={`Competence`}
-                    className=" w-full rounded-md flex flex-col md:items-center md:justify-center  bg-black/[0.96] antialiased bg-grid-white/[0.02] relative ">
+                    className=" w-full overflow-x-hidden rounded-md flex flex-col md:items-center md:justify-center  bg-black/[0.96] antialiased bg-grid-white/[0.02] relative ">
 
 
             <div className="w-full absolute inset-0 h-screen">
