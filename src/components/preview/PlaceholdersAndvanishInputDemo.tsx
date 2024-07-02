@@ -3,7 +3,7 @@
 import { PlaceholdersAndVanishInput } from "../ui/placeholders-and-vanish-input";
 import React, {useState} from "react";
 import emailjs from 'emailjs-com';
-import {SparklesCore} from "../ui/sparkle.tsx";
+
 
 
 

@@ -1,10 +1,9 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "../../utils/cn";
 
-// @ts-ignore
 export function PlaceholdersAndVanishInput({
                                                placeholders,
                                                onChange,
@@ -17,10 +16,8 @@ export function PlaceholdersAndVanishInput({
     const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
 
     useEffect(() => {
-        let interval: number;
+        let interval: any;
         const startAnimation = () => {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
             interval = setInterval(() => {
                 setCurrentPlaceholder((prev) => (prev + 1) % placeholders.length);
             }, 1500);
@@ -30,7 +27,7 @@ export function PlaceholdersAndVanishInput({
     }, [placeholders.length]);
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const newDataRef = useRef<never[]>([]);
+    const newDataRef = useRef<any[]>([]);
     const inputRef = useRef<HTMLInputElement>(null);
     const [value, setValue] = useState("");
     const [animating, setAnimating] = useState(false);
@@ -54,19 +51,17 @@ export function PlaceholdersAndVanishInput({
 
         const imageData = ctx.getImageData(0, 0, 800, 800);
         const pixelData = imageData.data;
-        const newData: never[] = [];
+        const newData: any[] = [];
 
         for (let t = 0; t < 800; t++) {
-            const i = 4 * t * 800;
+            let i = 4 * t * 800;
             for (let n = 0; n < 800; n++) {
-                const e = i + 4 * n;
+                let e = i + 4 * n;
                 if (
                     pixelData[e] !== 0 &&
                     pixelData[e + 1] !== 0 &&
                     pixelData[e + 2] !== 0
                 ) {
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-expect-error
                     newData.push({
                         x: n,
                         y: t,
@@ -80,8 +75,7 @@ export function PlaceholdersAndVanishInput({
                 }
             }
         }
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-expect-error
+
         newDataRef.current = newData.map(({ x, y, color }) => ({
             x,
             y,
@@ -97,8 +91,6 @@ export function PlaceholdersAndVanishInput({
     const animate = (start: number) => {
         const animateFrame = (pos: number = 0) => {
             requestAnimationFrame(() => {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error
                 const newArr = [];
                 for (let i = 0; i < newDataRef.current.length; i++) {
                     const current = newDataRef.current[i];
@@ -115,8 +107,6 @@ export function PlaceholdersAndVanishInput({
                         newArr.push(current);
                     }
                 }
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error
                 newDataRef.current = newArr;
                 const ctx = canvasRef.current?.getContext("2d");
                 if (ctx) {
@@ -162,7 +152,7 @@ export function PlaceholdersAndVanishInput({
             animate(maxX);
         }
     };
-   
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         vanishAndSubmit();
