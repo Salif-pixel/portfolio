@@ -8,9 +8,15 @@
 import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 
 
+interface CardProps {
+    title: string;
+    description: string;
+    image: string;
+}
 
 
-export function ThreeDCardDemo({title,description,image}) {
+
+export function ThreeDCardDemo({title,description,image}: CardProps) {
 
     return (
         <CardContainer className="inter-var">
