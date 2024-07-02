@@ -126,7 +126,7 @@ function App() {
                 </motion.div>
             </div>
 
-            <div className={` fixed bottom-0 left-0 flex justify-center right-0 text-white`}>
+            <div className={` fixed bottom-0 left-0 flex justify-center z-50 right-0 text-white`}>
                 <div className={`mr-10 flex flex-col`}>
                     <h1 className={`hover:text-gray-700 cursor-pointer`}  onClick={()=>{setWork(false);console.log(work);animation()}}>Bienvenue</h1>
                     <motion.div initial={{width: 0}} animate={{width: 75}} transition={{
