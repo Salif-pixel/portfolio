@@ -17,84 +17,85 @@ function App() {
     const [work, setWork] = React.useState(false);
 
     const animation = async (): Promise<void> => {
-
-        const newwork=!work
-
-        if(newwork){
-             await Promise.all([
-
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error
-                animated(
-                    "#Bienvenue",
-                    {opacity:0 },
-                    { duration:0.1 }
-              ),
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error
-                animated(
-                    "#Competence",
-                     {opacity:0,height:"fit-content"},
-                    { duration:0.1 }
-                ),
-             ])
+try {
 
 
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error
-          await  animated(
+    const newwork = !work
+
+    if (newwork) {
+        await Promise.all([
+
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
+            animated(
                 "#Bienvenue",
-                {opacity:0, width: 0 },
-                { duration: 0.1 }
-            );
+                {opacity: 0},
+                {duration: 0.1}
+            ),
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-expect-error
-            await animated(
+            animated(
                 "#Competence",
-                {opacity:1  },
-                { duration: 0.5 }
-            );
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-            await animated("#app",{overflow:"hidden"},{duration:0.1});
-        }else{
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-           await animated(
-                "#Competence",
-                {opacity:0 },
-                { duration:0.1 }
-            );
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-            await animated(
-                "#Competence",
-                {height:0 },
-                { duration:0.1 }
-            );
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error
-               await animated(
-                    "#Bienvenue",
-                    {width:"100vw" },
-                    { duration:0.1 }
-                );
+                {opacity: 0, height: "fit-content"},
+                {duration: 0.1}
+            ),
+        ])
 
 
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        await animated(
+            "#Bienvenue",
+            {opacity: 0, width: 0},
+            {duration: 0.1}
+        );
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        await animated(
+            "#Competence",
+            {opacity: 1},
+            {duration: 0.5}
+        );
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        await animated("#app", {overflow: "hidden"}, {duration: 0.1});
+    } else {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        await animated(
+            "#Competence",
+            {opacity: 0},
+            {duration: 0.1}
+        );
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        await animated(
+            "#Competence",
+            {height: 0},
+            {duration: 0.1}
+        );
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        await animated(
+            "#Bienvenue",
+            {width: "100vw"},
+            {duration: 0.1}
+        );
 
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-            await animated(
-                "#Bienvenue",
-                {opacity:1},
-                { duration:0.4 }
-            );
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-            await animated("#app",{overflow:"auto"},{duration:0.1});
 
-        }
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        await animated(
+            "#Bienvenue",
+            {opacity: 1},
+            {duration: 0.4}
+        );
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        await animated("#app", {overflow: "auto"}, {duration: 0.1});
 
+    }
+}catch (e){ /* empty */ }
     };
     const audioRef = useRef<HTMLAudioElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -145,7 +146,7 @@ function App() {
                 <h1 className={`hover:text-gray-700 cursor-pointer`} onClick={() => {
                     if(work){
                     setWork(false);
-                    console.log(work);
+
                     animation();
                     }
                 }}>Bienvenue</h1>
@@ -160,7 +161,7 @@ function App() {
                 <h1 className={`hover:text-gray-700 cursor-pointer`} onClick={() => {
                     if(!work){
                     setWork(true);
-                    console.log(work);
+
                     animation();
                     }
                 }}>Compétences</h1>

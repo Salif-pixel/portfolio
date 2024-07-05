@@ -3,6 +3,7 @@ import { Spotlight } from "../ui/Spotlighht.tsx";
 import {TextGenerateEffectDemo} from "./TextGenerateEffectDemo.tsx";
 
 
+
 export function Bienvenue() {
   return (
       <div
@@ -12,6 +13,7 @@ export function Bienvenue() {
               fill="white"
 
           />
+
 
 
           <div className=" p-4 max-w-7xl flex justify-start  mx-auto relative z-10  w-full pt-20 md:pt-0">

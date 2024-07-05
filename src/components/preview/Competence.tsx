@@ -4,13 +4,9 @@ import jwt from "../../assets/jwt.png";
 import medicare from "../../assets/medicare.png";
 import {SparklesCore} from "../ui/sparkle.tsx";
 import {LampDemo} from "../preview/LampDemo.tsx";
-import {PlaceholdersAndVanishInputDemo} from "./PlaceholdersAndvanishInputDemo.tsx";
+
 import {ThreeDCardDemo} from "./3dcardDemo.tsx";
 import {TabsDemo} from "./tabsDemo.tsx";
-
-
-
-
 
 
 
@@ -86,8 +82,8 @@ export function Competence() {
 
                 </div>
                 <div className={`grid  w-screen h-fit  grid-cols-1  md:grid-cols-2  gap-x-4 gap-y-28 lg:gap-y-16`}>
-                    {industries2.map((industry) => (
-                        <ThreeDCardDemo title={industry.title} description={industry.description}
+                    {industries2.map((industry,index) => (
+                        <ThreeDCardDemo key={index} title={industry.title} description={industry.description}
                                         image={industry.image}/>
                     ))}
                 </div>
@@ -113,7 +109,7 @@ export function Competence() {
             <TabsDemo/>
             <LampDemo/>
 
-            <PlaceholdersAndVanishInputDemo/>
+
 
         </motion.div>
     )
